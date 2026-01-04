@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MedGen | Official Notice Generator</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+</head>
+<body>
+
+    <div id="input-screen" class="container">
+        <div class="card">
+            <div class="header">
+                <span class="icon">🏥</span>
+                <h1>Medical Notice Generator</h1>
+                <p>Enter student details to generate the official authorization.</p>
+            </div>
+
+            <form id="notice-form">
+                <div class="input-group">
+                    <label>Student Full Name</label>
+                    <input type="text" id="in-name" placeholder="John Doe" required>
+                </div>
+
+                <div class="row">
+                    <div class="input-group">
+                        <label>Roll Number</label>
+                        <input type="text" id="in-roll" placeholder="2024/CSE/01" required>
+                    </div>
+                    <div class="input-group">
+                        <label>Department</label>
+                        <input type="text" id="in-dept" placeholder="B.Tech CS" required>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label>College/University Name</label>
+                    <input type="text" id="in-clg" placeholder="Global Institute of Tech" required>
+                </div>
+
+                <div class="input-group">
+                    <label>Medical Reason / Procedure</label>
+                    <textarea id="in-reason" rows="4" placeholder="e.g., Immediate surgery for Appendicitis..." required></textarea>
+                </div>
+
+                <button type="submit" class="btn-generate">Generate Official Notice</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="output-screen" class="container" style="display: none;">
+        <div class="printable-notice" id="printable-area">
+            <div class="notice-header">
+                <div class="hospital-info">
+                    <h2>CITY MEDICAL CENTER</h2>
+                    <p>Emergency & Procedure Department</p>
+                    <small>123 Health Ave, Sector 4 | Contact: +91 9988776655</small>
+                </div>
+                <div class="notice-title">OFFICIAL MEDICAL AUTHORIZATION</div>
+            </div>
+
+            <div class="notice-body">
+                <p><strong>Date:</strong> <span id="out-date"></span></p>
+                <p>To Whom It May Concern,</p>
+                <p>This is to certify that the student mentioned below is under medical supervision and requires further medical procedures at our facility.</p>
+                
+                <div class="student-info-box">
+                    <p><strong>Name:</strong> <span id="out-name"></span></p>
+                    <p><strong>Roll No:</strong> <span id="out-roll"></span></p>
+                    <p><strong>Department:</strong> <span id="out-dept"></span></p>
+                    <p><strong>Institution:</strong> <span id="out-clg"></span></p>
+                </div>
+
+                <div class="medical-clause">
+                    <p><strong>Diagnosis / Reason:</strong></p>
+                    <p id="out-reason" class="reason-text"></p>
+                </div>
+
+                <p>As per hospital policy, the student is authorized to receive medication and surgical procedures as deemed necessary by the attending physician.</p>
+            </div>
+
+            <div class="notice-footer">
+    <div class="signature">
+        <div class="digital-stamp">VERIFIED & APPROVED</div>
+        
+        <div class="sig-line"></div>
+        <p>Authorized Medical Officer</p>
+        <small>(Digitally Signed & Secured)</small>
+    </div>
+    
+    
+</div>
+        </div>
+
+       <div class="action-buttons">
+        <button type="button" onclick="downloadPDF()" class="btn-print">
+            ⬇️ Download Official PDF
+        </button>
+        
+        <button type="button" onclick="location.reload()" class="btn-back">
+            Reset / Create New
+        </button>
+    </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</body>
+</html>
