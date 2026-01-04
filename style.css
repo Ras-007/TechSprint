@@ -94,29 +94,256 @@ body { font-family: 'Inter', sans-serif; background: var(--bg); margin: 0; paddi
     position: relative; /* Essential for positioning the stamp */
 }
 
-.digital-stamp {
+/* Change this in your CSS */
+.stamp {
     position: absolute;
-    top: -40px; /* Positions it over the signature line */
-    left: 20px;
-    border: 3px double #c0392b; /* Medical red color */
-    color: #c0392b;
-    font-family: 'Courier New', monospace;
-    font-weight: bold;
-    padding: 8px 15px;
-    text-align: center;
-    text-transform: uppercase;
+    /* Move it to the left side */
+    left: 40px; 
+    bottom: 80px;
     
-    /* This makes it look like a real stamp */
-    transform: rotate(-15deg); 
-    opacity: 0.7;
-    border-radius: 5px;
-    background-color: rgba(255, 255, 255, 0.5);
-    
-    /* Prevents the text from being selectable */
+    /* Keeps the official look */
+    border: 3px double #c0392b; 
+    color: #c0392b; 
+    padding: 10px 15px; 
+    transform: rotate(-12deg); /* Tilted slightly for authenticity */
+    font-weight: bold; 
+    opacity: 0.8;
+    background: rgba(255, 255, 255, 0.6);
     user-select: none;
-    pointer-events: none;
+}
+
+.digital-stamp {
+
+    position: absolute;
+
+    top: -40px; /* Positions it over the signature line */
+
+    left: 40px;
+    bottom: 80px;
+
+    border: 3px double #c0392b; /* Medical red color */
+
+    color: #c0392b;
+
+    font-family: 'Courier New', monospace;
+
+    font-weight: bold;
+
+    padding: 8px 15px;
+
+    text-align: center;
+
+    text-transform: uppercase;
+
     
+
+    /* This makes it look like a real stamp */
+
+    transform: rotate(-15deg); 
+
+    opacity: 0.7;
+
+    border-radius: 5px;
+
+    background-color: rgba(255, 255, 255, 0.5);
+
+    
+
+    /* Prevents the text from being selectable */
+
+    user-select: none;
+
+    pointer-events: none;
+
+    
+
     /* Adds a slight "ink" texture effect */
+
     mask-image: linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0.8));
+
     -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0.8));
+
+}
+/* --- Header Styling --- */
+.app-header {
+    background: #ffffff;
+    border-bottom: 2px solid #e2e8f0;
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.header-content {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 800;
+    color: #c0392b; /* Medical Red */
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    letter-spacing: -0.5px;
+}
+
+.plus-icon {
+    background: #c0392b;
+    color: white;
+    padding: 0 6px;
+    border-radius: 4px;
+    font-size: 18px;
+}
+
+/* --- Footer Styling --- */
+.app-footer {
+    background: #0f172a;
+    color: #94a3b8;
+    padding: 60px 20px 30px;
+    margin-top: 60px;
+    text-align: center;
+    border-top: 4px solid #2563eb; /* Adds a nice blue accent line */
+}
+
+.footer-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.footer-brand-name {
+    color: #f8fafc;
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.footer-tagline {
+    font-size: 0.9rem;
+    margin-bottom: 25px;
+}
+
+.security-section h4, .system-section h4 {
+    color: #38bdf8;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin: 20px 0 10px;
+}
+
+.badge-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.cert-badge {
+    background: #1e293b;
+    border: 1px solid #334155;
+    padding: 5px 12px;
+    border-radius: 4px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: #e2e8f0;
+}
+
+.system-info-grid {
+    font-size: 0.8rem;
+    line-height: 1.8;
+    margin-bottom: 30px;
+}
+
+.status-online {
+    color: #4ade80;
+    font-weight: bold;
+}
+
+.footer-copyright {
+    font-size: 0.75rem;
+    border-top: 1px solid #1e293b;
+    padding-top: 20px;
+}
+
+:root {
+    --med-blue: #0284c7;
+    --dark-slate: #0f172a;
+    --ice-blue: #f0f9ff;
+}
+
+
+.pro-navbar {
+    width: 100%;
+    background: white;
+}
+
+.top-bar {
+    background: #0f172a;
+    color: rgba(255,255,255,0.6);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    padding: 10px 0;
+}
+
+.top-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.main-nav {
+    border-bottom: 1px solid #f1f5f9;
+    padding: 25px 0;
+}
+
+.nav-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.med-cross {
+    background: #2563eb;
+    color: white;
+    width: 34px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    font-size: 22px;
+}
+
+.brand-name {
+    font-size: 24px;
+    color: #0f172a;
+    letter-spacing: -1px;
+}
+
+.bold { font-weight: 800; }
+
+.current-module {
+    font-size: 13px;
+    color: #64748b;
+    font-weight: 500;
+    border-left: 2px solid #e2e8f0;
+    padding-left: 15px;
 }
