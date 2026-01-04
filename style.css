@@ -1,0 +1,373 @@
+:root {
+    --primary: #c0392b; /* Medical Red */
+    --bg: #f4f7f6;
+}
+
+body { font-family: 'Inter', sans-serif; background: var(--bg); margin: 0; padding: 20px; }
+
+.container { max-width: 650px; margin: 0 auto; }
+
+/* Form Styling */
+.card { background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+.header { text-align: center; margin-bottom: 25px; }
+.header h1 { margin: 5px 0; color: #333; }
+
+.input-group { margin-bottom: 15px; text-align: left; }
+.input-group label { display: block; font-weight: 600; margin-bottom: 5px; font-size: 14px; }
+.input-group input, .input-group textarea {
+    width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 6px; box-sizing: border-box;
+}
+
+.row { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+
+.btn-generate {
+    width: 100%; padding: 15px; background: var(--primary); color: white;
+    border: none; border-radius: 6px; font-weight: bold; cursor: pointer; font-size: 16px;
+}
+
+/* Printable Notice Styling */
+.printable-notice {
+    background: white; padding: 50px; border: 1px solid #eee; position: relative;
+    color: #000; min-height: 700px;
+}
+
+.notice-header { text-align: center; border-bottom: 2px solid #333; padding-bottom: 15px; margin-bottom: 20px; }
+.notice-title { 
+    margin-top: 15px; font-weight: bold; font-size: 20px; letter-spacing: 1px; color: var(--primary); 
+}
+
+.student-info-box { 
+    border: 1px solid #ccc; padding: 15px; background: #f9f9f9; margin: 20px 0; line-height: 1.6;
+}
+
+.medical-clause { margin: 20px 0; border-left: 5px solid var(--primary); padding-left: 15px; }
+.reason-text { font-style: italic; color: #444; }
+
+.notice-footer { margin-top: 60px; display: flex; justify-content: space-between; align-items: flex-end; }
+.sig-line { border-bottom: 1px solid #000; width: 180px; margin-bottom: 5px; }
+
+.action-buttons { margin-top: 20px; display: flex; gap: 10px; }
+.btn-print { background: #2ecc71; color: white; border: none; padding: 12px 25px; border-radius: 5px; cursor: pointer; flex: 1; }
+.btn-back { background: #95a5a6; color: white; border: none; padding: 12px 25px; border-radius: 5px; cursor: pointer; }
+
+/* Hide input screen when printing */
+@media print {
+    body { background: white; padding: 0; }
+    .action-buttons, #input-screen { display: none !important; }
+    .container { max-width: 100%; }
+    .printable-notice { border: none; box-shadow: none; }
+}
+
+.action-buttons {
+    margin-top: 30px;
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+.btn-print {
+    background-color: #27ae60; /* Success Green */
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s;
+}
+
+.btn-print:hover {
+    background-color: #219150;
+}
+
+.btn-back {
+    background-color: #7f8c8d; /* Grey */
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.signature {
+    position: relative; /* Essential for positioning the stamp */
+}
+
+/* Change this in your CSS */
+.stamp {
+    position: absolute;
+    /* Move it to the left side */
+    left: 40px; 
+    bottom: 80px;
+    
+    /* Keeps the official look */
+    border: 3px double #c0392b; 
+    color: #c0392b; 
+    padding: 10px 15px; 
+    transform: rotate(-12deg); /* Tilted slightly for authenticity */
+    font-weight: bold; 
+    opacity: 0.8;
+    background: rgba(255, 255, 255, 0.6);
+    user-select: none;
+}
+
+.digital-stamp {
+
+    position: absolute;
+
+    top: -40px; /* Positions it over the signature line */
+
+    left: 40px;
+    bottom: 80px;
+
+    border: 3px double #c0392b; /* Medical red color */
+
+    color: #c0392b;
+
+    font-family: 'Courier New', monospace;
+
+    font-weight: bold;
+
+    padding: 8px 15px;
+
+    text-align: center;
+
+    text-transform: uppercase;
+
+    
+
+    /* This makes it look like a real stamp */
+
+    transform: rotate(-15deg); 
+
+    opacity: 0.7;
+
+    border-radius: 5px;
+
+    background-color: rgba(255, 255, 255, 0.5);
+
+    
+
+    /* Prevents the text from being selectable */
+
+    user-select: none;
+
+    pointer-events: none;
+
+    
+
+    /* Adds a slight "ink" texture effect */
+
+    mask-image: linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0.8));
+
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0.8));
+
+}
+/* --- Header Styling --- */
+.app-header {
+    background: #ffffff;
+    border-bottom: 2px solid #e2e8f0;
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.header-content {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 800;
+    color: #c0392b; /* Medical Red */
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    letter-spacing: -0.5px;
+}
+
+.plus-icon {
+    background: #c0392b;
+    color: white;
+    padding: 0 6px;
+    border-radius: 4px;
+    font-size: 18px;
+}
+
+/* --- Footer Styling --- */
+.app-footer {
+    background: #0f172a;
+    color: #94a3b8;
+    padding: 60px 20px 30px;
+    margin-top: 60px;
+    text-align: center;
+    border-top: 4px solid #2563eb; /* Adds a nice blue accent line */
+}
+
+.footer-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.footer-brand-name {
+    color: #f8fafc;
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.footer-tagline {
+    font-size: 0.9rem;
+    margin-bottom: 25px;
+}
+
+.security-section h4, .system-section h4 {
+    color: #38bdf8;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin: 20px 0 10px;
+}
+
+.badge-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.cert-badge {
+    background: #1e293b;
+    border: 1px solid #334155;
+    padding: 5px 12px;
+    border-radius: 4px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: #e2e8f0;
+}
+
+.system-info-grid {
+    font-size: 0.8rem;
+    line-height: 1.8;
+    margin-bottom: 30px;
+}
+
+.status-online {
+    color: #4ade80;
+    font-weight: bold;
+}
+
+.footer-copyright {
+    font-size: 0.75rem;
+    border-top: 1px solid #1e293b;
+    padding-top: 20px;
+}
+
+:root {
+    --med-blue: #0284c7;
+    --dark-slate: #0f172a;
+    --ice-blue: #f0f9ff;
+}
+
+
+.pro-navbar {
+    width: 100%;
+    background: white;
+}
+
+.top-bar {
+    background: #0f172a;
+    color: rgba(255,255,255,0.6);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    padding: 10px 0;
+}
+
+.top-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.main-nav {
+    border-bottom: 1px solid #f1f5f9;
+    padding: 25px 0;
+}
+
+.nav-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.med-cross {
+    background: #2563eb;
+    color: white;
+    width: 34px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    font-size: 22px;
+}
+
+.brand-name {
+    font-size: 24px;
+    color: #0f172a;
+    letter-spacing: -1px;
+}
+
+.bold { font-weight: 800; }
+
+.current-module {
+    font-size: 13px;
+    color: #64748b;
+    font-weight: 500;
+    border-left: 2px solid #e2e8f0;
+    padding-left: 15px;
+}
+.stamp {
+    /* 1. Reset everything first */
+    position: absolute !important;
+    right: auto !important; 
+    
+    /* 2. Pin to the left */
+    left: 40px !important; 
+    
+    /* 3. Positioning and look */
+    bottom: 80px;
+    border: 3px double #c0392b;
+    color: #c0392b;
+    padding: 8px 15px;
+    
+    /* 4. Tilted for the human-stamp effect */
+    transform: rotate(-15deg);
+    transform-origin: left center;
+    
+    font-weight: bold;
+    opacity: 0.8;
+    background: rgba(255, 255, 255, 0.6);
+    z-index: 99; /* Ensures it is above the signature line */
+    white-space: nowrap;
+}
